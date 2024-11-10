@@ -13,7 +13,7 @@ Each Cubit is a list of Todos
 
 class TodoCubit extends Cubit<List<ITodo>> {
   // Reference Todo Repo
-  final TodoRepo todoRepo;
+  final ITodoRepo todoRepo;
 
   TodoCubit(this.todoRepo) : super([]) {
     loadTodos();

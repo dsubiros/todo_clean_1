@@ -3,7 +3,7 @@ import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:todo_clean_1/data/models/isar_todo.dart';
 import 'package:todo_clean_1/data/presentation/todo_page.dart';
-import 'package:todo_clean_1/data/datasource/isar_todo_repo.dart';
+import 'package:todo_clean_1/data/repository/isar_todo_repo.dart';
 import 'package:todo_clean_1/domain/repository/todo_repo.dart';
 
 void main() async {
@@ -23,7 +23,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final TodoRepo todoRepo;
+  final ITodoRepo todoRepo;
 
   const MyApp({super.key, required this.todoRepo});
 

@@ -4,7 +4,7 @@ import 'package:todo_clean_1/domain/entity/todo_entity.dart';
 
 /// Here you define what the app can do
 
-abstract class TodoRepo {
+abstract class ITodoRepo {
   // Get All Todos
   Future<List<ITodo>> getAll();
 

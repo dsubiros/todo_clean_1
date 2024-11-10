@@ -12,7 +12,7 @@ import 'package:todo_clean_1/data/models/todo.dart';
 import 'package:todo_clean_1/domain/entity/todo_entity.dart';
 import 'package:todo_clean_1/domain/repository/todo_repo.dart';
 
-class IsarTodoRepo implements TodoRepo {
+class IsarTodoRepo implements ITodoRepo {
   // database
   final Isar db;
 
