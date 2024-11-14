@@ -4,11 +4,9 @@ import 'package:todo_clean_1/data/presentation/todo_cubit.dart';
 import 'package:todo_clean_1/data/presentation/todo_view.dart';
 import 'package:todo_clean_1/domain/repository/todo_repo.dart';
 
-/**
- * TODO PAGE: Responsible for providing Cubit to the view (UI).
- * 
- * - use BlocProvider
- */
+/// TODO-PAGE: Responsible for providing Cubit to the view (UI).
+///
+/// - use BlocProvider
 
 class TodoPage extends StatelessWidget {
   final ITodoRepo todoRepo;

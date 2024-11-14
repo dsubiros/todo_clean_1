@@ -3,13 +3,9 @@ import 'package:todo_clean_1/data/models/todo.dart';
 import 'package:todo_clean_1/domain/entity/todo_entity.dart';
 import 'package:todo_clean_1/domain/repository/todo_repo.dart';
 
-/*
-
-TODO CUBIT - Simple state mgmt
-
-Each Cubit is a list of Todos
-
-*/
+/// TODO-CUBIT - Simple state management
+///
+/// Each Cubit is a list of Todos
 
 class TodoCubit extends Cubit<List<ITodo>> {
   // Reference Todo Repo

@@ -4,11 +4,9 @@ import 'package:todo_clean_1/domain/entity/todo_entity.dart';
 part 'todo.freezed.dart';
 part 'todo.g.dart';
 
-/**
- * 
- * TODO MODEL
- * 
- */
+///
+/// TODO-MODEL
+///
 
 @freezed
 class Todo with _$Todo implements ITodo {

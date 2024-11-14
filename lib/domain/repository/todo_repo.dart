@@ -1,7 +1,7 @@
 import 'package:todo_clean_1/domain/entity/todo_entity.dart';
 
-///  TODO REPOSITORY
-
+///  TODO-REPOSITORY
+///
 /// Here you define what the app can do
 
 abstract class ITodoRepo {

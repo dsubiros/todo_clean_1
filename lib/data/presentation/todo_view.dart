@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_clean_1/data/presentation/todo_cubit.dart';
 import 'package:todo_clean_1/domain/entity/todo_entity.dart';
-// import 'package:todo_clean_1/data/models/todo.dart';
-/**
- * Responsible for UI.
- * 
- * - use BlocBuilder
- */
+
+/// Responsible for UI.
+///
+/// - use BlocBuilder
 
 class TodoView extends StatelessWidget {
   const TodoView({super.key});

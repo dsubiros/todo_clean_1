@@ -3,11 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'todo.freezed.dart';
 part 'todo.g.dart';
 
-/**
- * 
- * TODO MODEL
- * 
- */
+///
+/// TODO-MODEL
+///
 
 @freezed
 class Todo with _$Todo {
