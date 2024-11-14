@@ -1,21 +1,21 @@
-import 'package:todo_clean_1/domain/entity/todo.dart';
+import 'package:todo_clean_1/domain/entity/todo_entity.dart';
 
 ///  TODO REPOSITORY
 
 /// Here you define what the app can do
 
-abstract class TodoRepo {
+abstract class ITodoRepo {
   // Get All Todos
-  Future<List<Todo>> getAll();
+  Future<List<ITodo>> getAll();
 
-  // Add new Todo
-  Future<void> addTodo(Todo newTodo);
+  // Add new ITodo
+  Future<void> addTodo(ITodo newTodo);
 
-  // Update new Todo
-  Future<void> updateTodo(Todo newTodo);
+  // Update new ITodo
+  Future<void> updateTodo(ITodo newTodo);
 
-  // Toggle a Todo
-  Future<void> deleteTodo(Todo todo);
+  // Toggle a ITodo
+  Future<void> deleteTodo(ITodo todo);
 
-  // Future<void> toggleTodo(Todo todo);
+  // Future<void> toggleTodo(ITodo todo);
 }

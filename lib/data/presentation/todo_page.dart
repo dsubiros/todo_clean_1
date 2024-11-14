@@ -11,7 +11,7 @@ import 'package:todo_clean_1/domain/repository/todo_repo.dart';
  */
 
 class TodoPage extends StatelessWidget {
-  final TodoRepo todoRepo;
+  final ITodoRepo todoRepo;
 
   const TodoPage({super.key, required this.todoRepo});
 

@@ -23,7 +23,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final TodoRepo todoRepo;
+  final ITodoRepo todoRepo;
 
   const MyApp({super.key, required this.todoRepo});
 

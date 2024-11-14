@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_clean_1/domain/entity/todo.dart';
+import 'package:todo_clean_1/data/models/todo.dart';
+import 'package:todo_clean_1/domain/entity/todo_entity.dart';
 import 'package:todo_clean_1/domain/repository/todo_repo.dart';
 
 /*
@@ -10,9 +11,9 @@ Each Cubit is a list of Todos
 
 */
 
-class TodoCubit extends Cubit<List<Todo>> {
+class TodoCubit extends Cubit<List<ITodo>> {
   // Reference Todo Repo
-  final TodoRepo todoRepo;
+  final ITodoRepo todoRepo;
 
   TodoCubit(this.todoRepo) : super([]) {
     loadTodos();
@@ -42,7 +43,7 @@ class TodoCubit extends Cubit<List<Todo>> {
 
   // D E L E T E
 
-  Future<void> deleteTodo(Todo todo) async {
+  Future<void> deleteTodo(ITodo todo) async {
     await todoRepo.deleteTodo(todo);
 
     // Re-load
@@ -51,8 +52,8 @@ class TodoCubit extends Cubit<List<Todo>> {
 
   // T O G G L E
 
-  Future<void> toggleTodo(Todo todo) async {
-    final updatedTodo = todo.toggleCompletion();
+  Future<void> toggleTodo(ITodo todo) async {
+    final updatedTodo = (todo as Todo).toggleCompletion();
 
     await todoRepo.updateTodo(updatedTodo);
 
