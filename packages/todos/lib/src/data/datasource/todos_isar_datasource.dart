@@ -7,25 +7,42 @@ This implements the ITodo repo and handles storing, retrieving, updating and
 
 import 'package:errors/errors.dart';
 import 'package:isar/isar.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:todos/src/data/datasource/todos_datasource.dart';
 import 'package:todos/src/data/model/todo.dart';
 import 'package:todos/src/data/model/todo_isar.dart';
 import 'package:todos/src/data/model/todo_list.dart';
 import 'package:todos/src/domain/domain.dart';
 
-class TodoRepoIsarImpl implements ITodosDataSource {
-  final Isar db;
+class TodosIsarDataSourceImpl implements ITodosDataSource {
+  static Isar? _database;
 
-  TodoRepoIsarImpl(this.db);
+  // TodosIsarDataSourceImpl(this._database);
+
+  Future<Isar> get database async {
+    _database ??= await _initDatabase();
+    return _database!;
+  }
+
+  Future<Isar> _initDatabase() async {
+    // Get directory path for storing data
+    final dir = await getApplicationDocumentsDirectory();
+
+    // Open Isar database
+    final isar = await Isar.open([TodoIsarSchema], directory: dir.path);
+    return isar;
+  }
 
   @override
   Future<ITodoList> getAll() async {
     try {
+      final db = await database;
+
       final dbItems = await db.todoIsars.where().findAll();
 
       final items = TodoList(
-          values: dbItems.map((todoIsar) => todoIsar.toDomain()).toList()
-              as List<Todo>);
+        values: dbItems.map((todoIsar) => todoIsar.toDomain() as Todo).toList(),
+      );
 
       return items;
     } catch (e) {

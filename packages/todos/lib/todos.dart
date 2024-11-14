@@ -4,7 +4,7 @@
 library todos;
 
 export 'package:errors/errors.dart';
-// export 'package:network_info/network_info.dart';
+export 'package:network_info/network_info.dart';
 export 'package:connectivity_plus/connectivity_plus.dart';
 
 // export 'src/todos_base.dart';
@@ -20,4 +20,12 @@ export 'src/domain/domain.dart'
         AddTodoUseCaseImpl,
         GetTodoListUseCaseImpl;
 
-// export 'src/data/data.dart' show ;
+export 'src/data/data.dart'
+    show
+        Todo,
+        TodoList,
+        TodosRepositoryImpl,
+        ITodosDataSource,
+        TodosIsarDataSourceImpl,
+        TodoIsar,
+        TodoIsarSchema;

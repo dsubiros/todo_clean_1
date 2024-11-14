@@ -9,6 +9,7 @@ environment:
 # Add regular dependencies here.
 dependencies:
   path: ^1.8.0
+  path_provider: ^2.1.5
   errors:
     path: ../errors
   network_info:
@@ -25,7 +26,6 @@ dependencies:
     version: 3.1.8
     hosted: https://pub.isar-community.dev/
   flutter_bloc: ^8.1.6
-  path_provider:
   dio:
   http:  
   connectivity_plus: ^6.1.0

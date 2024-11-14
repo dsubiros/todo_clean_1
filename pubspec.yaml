@@ -31,7 +31,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  todos:
+    path: 'packages/todos'
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -44,8 +45,11 @@ dependencies:
     version: 3.1.8
     hosted: https://pub.isar-community.dev/
   flutter_bloc: ^8.1.6
-  path_provider:
+  path_provider: ^2.1.5
   freezed_annotation: ^2.4.4
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+  json_annotation: ^4.9.0
   
 
 dev_dependencies:
