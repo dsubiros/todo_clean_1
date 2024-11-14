@@ -4,7 +4,7 @@ abstract class ITodosDataSource {
   // Future<List<ITodo>> getAll();
   Future<ITodoList> getAll();
 
-  Future<void> addOne(ITodo item);
+  Future<ITodo> addOne(ITodo item);
 
   Future<bool> updateOne(ITodo item);
 

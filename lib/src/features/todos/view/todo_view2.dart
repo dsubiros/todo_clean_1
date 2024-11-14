@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo_clean_1/data/presentation/todo_cubit.dart';
-import 'package:todo_clean_1/domain/entity/todo_entity.dart';
-import 'package:todo_clean_1/src/features/todos/logic/provider.dart';
+import 'package:todo_clean_1/src/features/todos/logic/todos_provider.dart';
 import 'package:todos/todos.dart';
 
 /// Responsible for UI.
@@ -23,9 +20,9 @@ class TodoView2 extends ConsumerWidget {
 
     return Scaffold(
       // FAB
-      // floatingActionButton: FloatingActionButton(
-      //     child: const Icon(Icons.add),
-      //     onPressed: () => _showAddTodoBox(context)),
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () => _showAddTodoBox(context, ref)),
       body: Center(
         child: ref.watch(todosProvider).maybeWhen(
               success: (data) => _buildTodoList(data),
@@ -96,6 +93,41 @@ class TodoView2 extends ConsumerWidget {
         );
       },
     );
+  }
+
+  _showAddTodoBox(BuildContext context, WidgetRef ref) {
+    // final todoCubit = context.read<TodoCubit>();
+    final data = ref.watch(todosProvider.notifier);
+    final textController = TextEditingController();
+
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              content: TextField(
+                controller: textController,
+              ),
+              actions: [
+                // Cancel Button
+                TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text('Cancel')),
+                // Add Button
+                TextButton(
+                    onPressed: () {
+                      final item = Todo(
+                        id: 0,
+                        text: textController.text,
+                        isCompleted: false,
+                      );
+
+                      data.add(item);
+
+                      // todoCubit.addTodo(textController.text);
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('Add'))
+              ],
+            ));
   }
 
   // _showAddTodoBox(BuildContext context) {

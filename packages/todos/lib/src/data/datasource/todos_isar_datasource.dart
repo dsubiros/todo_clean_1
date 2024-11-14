@@ -17,8 +17,6 @@ import 'package:todos/src/domain/domain.dart';
 class TodosIsarDataSourceImpl implements ITodosDataSource {
   static Isar? _database;
 
-  // TodosIsarDataSourceImpl(this._database);
-
   Future<Isar> get database async {
     _database ??= await _initDatabase();
     return _database!;
@@ -37,13 +35,10 @@ class TodosIsarDataSourceImpl implements ITodosDataSource {
   Future<ITodoList> getAll() async {
     try {
       final db = await database;
-
       final dbItems = await db.todoIsars.where().findAll();
-
       final items = TodoList(
         values: dbItems.map((todoIsar) => todoIsar.toDomain() as Todo).toList(),
       );
-
       return items;
     } catch (e) {
       throw CacheException(message: e.toString());
@@ -51,9 +46,22 @@ class TodosIsarDataSourceImpl implements ITodosDataSource {
   }
 
   @override
-  Future<void> addOne(ITodo newTodo) {
-    // TODO: implement addTodo
-    throw UnimplementedError();
+  Future<ITodo> addOne(ITodo newTodo) async {
+    try {
+      final db = await database;
+      // final dbItem = await db.todoIsars.cr
+      final todoIsar = TodoIsar.fromDomain(newTodo);
+
+      final id = await db.writeTxn(() => db.todoIsars.put(todoIsar));
+
+      // var dbItem = TodoIsar();
+      // var dbItem = await db.txn(() => db.todoIsars.get(id));
+      final dbItem = await db.todoIsars.where().idEqualTo(id).findFirst();
+
+      return dbItem!.toDomain() as Todo;
+    } catch (e) {
+      throw CacheException(message: e.toString());
+    }
   }
 
   @override

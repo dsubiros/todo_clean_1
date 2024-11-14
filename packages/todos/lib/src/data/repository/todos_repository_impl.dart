@@ -25,9 +25,13 @@ class TodosRepositoryImpl implements ITodosRepository {
   }
 
   @override
-  Future<Either<Failure, ITodo>> addOne(ITodo item) {
-    // TODO: implement addOne
-    throw UnimplementedError();
+  Future<Either<Failure, ITodo>> addOne(ITodo item) async {
+    try {
+      final result = await _remoteDataSource.addOne(item);
+      return Right(result);
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message));
+    }
   }
 
   @override

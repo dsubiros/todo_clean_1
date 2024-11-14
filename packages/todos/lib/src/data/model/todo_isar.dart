@@ -18,7 +18,7 @@ class TodoIsar {
   late bool isCompleted;
 
   // convert Isar object => pure Todo object ti yse in our app
-  ITodo toDomain() {
+  toDomain() {
     return Todo(
       id: id,
       text: text,

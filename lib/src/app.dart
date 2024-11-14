@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_clean_1/data/presentation/todo_page.dart';
-import 'package:todo_clean_1/data/presentation/todo_page2.dart';
-import 'package:todo_clean_1/domain/repository/todo_repo.dart';
+import 'package:todo_clean_1/src/features/todos/view/todo_page2.dart';
 
 class MyApp extends StatelessWidget {
   // final ITodoRepo todoRepo;

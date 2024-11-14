@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'provider.dart';
+part of 'todos_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -40,7 +40,7 @@ final todosRepositoryProvider = AutoDisposeProvider<ITodosRepository>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef TodosRepositoryRef = AutoDisposeProviderRef<ITodosRepository>;
-String _$todosHash() => r'cdcb31366045a94a5001eff444d9aab90a8bf5b6';
+String _$todosHash() => r'364a73cbb912a630110e3191698b580bce93317a';
 
 /// See also [Todos].
 @ProviderFor(Todos)
