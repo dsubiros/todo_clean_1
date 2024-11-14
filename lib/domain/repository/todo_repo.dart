@@ -1,4 +1,4 @@
-import 'package:todo_clean_1/domain/models/todo.dart';
+import 'package:todo_clean_1/domain/entity/todo.dart';
 
 ///  TODO REPOSITORY
 

@@ -7,15 +7,15 @@ This implements the Todo repo and handles storing, retrieving, updating amd
 */
 
 import 'package:isar/isar.dart';
-import 'package:todo_clean_1/data/models/isar_todo.dart';
-import 'package:todo_clean_1/domain/models/todo.dart';
+import 'package:todo_clean_1/data/models/todo_isar.dart';
+import 'package:todo_clean_1/domain/entity/todo.dart';
 import 'package:todo_clean_1/domain/repository/todo_repo.dart';
 
-class IsarTodoRepo implements TodoRepo {
+class TodoRepoIsar implements TodoRepo {
   // database
   final Isar db;
 
-  IsarTodoRepo(this.db);
+  TodoRepoIsar(this.db);
 
   @override
   Future<List<Todo>> getAll() async {

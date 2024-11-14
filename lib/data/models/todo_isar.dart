@@ -6,9 +6,9 @@ Converts Todo model into model that we can store in Isar db.
 */
 
 import 'package:isar/isar.dart';
-import 'package:todo_clean_1/domain/models/todo.dart';
+import 'package:todo_clean_1/domain/entity/todo.dart';
 
-part 'isar_todo.g.dart';
+part 'todo_isar.g.dart';
 
 @collection
 class TodoIsar {
